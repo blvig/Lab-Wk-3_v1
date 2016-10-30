@@ -99,8 +99,30 @@ class CanvasViewController: UIViewController {
             print ("gesture has ended")
             
         }
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanFace(sender:)))
+        
+        newlyCreatedFace.isUserInteractionEnabled = true
+        newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
+        
     }
     
+    func didPanFace(sender: UIPanGestureRecognizer) {
+        let location = sender.location(in: view)
+        let velocity = sender.velocity(in: view)
+        let translation = sender.translation(in: view)
+        
+        if sender.state == .began {
+            print("Gesture began")
+            newlyCreatedFace = sender.view as! UIImageView
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+        } else if sender.state == .changed {
+            print("Gesture is changing")
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+        } else if sender.state == .ended {
+            print("Gesture ended")
+        }
+    }
+
     
     /*
     // MARK: - Navigation
