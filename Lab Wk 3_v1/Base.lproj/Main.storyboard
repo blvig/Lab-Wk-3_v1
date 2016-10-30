@@ -77,12 +77,20 @@
                                     <outletCollection property="gestureRecognizers" destination="ppM-T9-F6A" appends="YES" id="YRB-zX-u0f"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" id="fuw-Sp-rS6">
+                                <frame key="frameInset" minX="67" minY="148" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.59974443089999996" blue="0.41652867869999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4sa-Vc-Zbh" appends="YES" id="Tno-gx-agk"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="deadImage" destination="wS9-LI-hvp" id="Q7g-oa-PcQ"/>
-                        <outlet property="excitedImage" destination="gfd-nD-D2R" id="QZf-Od-ErW"/>
+                        <outlet property="orangeSquare" destination="fuw-Sp-rS6" id="42P-eY-SqR"/>
                         <outlet property="trayView" destination="0LO-ki-W4t" id="oIk-9p-AgK"/>
                     </connections>
                 </viewController>
@@ -120,6 +128,11 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="qF5-BB-KyQ">
                     <connections>
                         <action selector="didPanFace:" destination="BYZ-38-t0r" id="hPA-iB-cUM"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="4sa-Vc-Zbh">
+                    <connections>
+                        <action selector="didPanOrange:" destination="BYZ-38-t0r" id="Ltc-Cc-T2G"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>
